@@ -7,6 +7,8 @@ const msg = document.querySelector("#msg");
 const userScorePara = document.querySelector("#user-score");
 const compScorePara = document.querySelector("#comp-score");
 
+const clickSound = new Audio("sound2.mp3"); // Replace with the actual path to your sound file
+
 // Check if Vibration API is supported
 const isVibrationSupported = 'vibrate' in navigator;
 
@@ -36,6 +38,9 @@ const showWinner = (userWin, userChoice, compChoice) => {
 };
 
 const playGame = (userChoice) => {
+    // Play the click sound
+    clickSound.play();
+
     // Vibrate for 100 milliseconds if supported
     if (isVibrationSupported) {
         navigator.vibrate(100);
